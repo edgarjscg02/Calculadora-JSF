@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title><h:outputText value="#{msg.app_title}"/></title>
+        <f:loadBundle basename="jsf.resources.mensajes" var="msg"/>
+    </h:head>
+    <h:body>
+        <h1>#{msg.app_title}</h1>
+
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="#{msg['app.operacion']}" for="operacion"/>
+                <h:selectOneMenu value="#{calculadoraFormBean.operador}" id="select">
+                    <f:selectItem itemValue="+" itemLabel="#{calculadoraFormBean.select[0]}"/>
+                    <f:selectItem itemValue="-" itemLabel="#{calculadoraFormBean.select[1]}"/>
+                    <f:selectItem itemValue="*" itemLabel="#{calculadoraFormBean.select[2]}"/>
+                    <f:selectItem itemValue="/" itemLabel="#{calculadoraFormBean.select[3]}"/>
+                </h:selectOneMenu>
+                <h:inputText value="#{calculadoraFormBean.num1}" id="num1" />  
+                <h:inputText value="#{calculadoraFormBean.num2}" id="num2" />
+                <h:commandButton value="#{msg['app.calcular']}" />
+            </h:panelGrid>
+            <h:outputText value="#{calculadoraFormBean.calculo}" 
+                          rendered="#{calculadoraFormBean.num2 ne null}" />
+        </h:form>
+    </h:body>
+</html>
+
