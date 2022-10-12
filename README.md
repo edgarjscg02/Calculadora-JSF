@@ -1,2 +1,2 @@
 # Calculadora-JSF
-Name: Edgar Ceballos
+Calculator using Java Server Faces (JSF)
